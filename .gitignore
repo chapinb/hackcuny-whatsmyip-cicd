@@ -1,3 +1,6 @@
+# We are using poetry instead
+requirements.txt
+
 *.swp
 package-lock.json
 __pycache__

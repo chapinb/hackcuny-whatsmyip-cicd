@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "whatsmyip-iac"
+version = "0.1.0"
+description = ""
+authors = ["Chapin Bryce <mail@chapinb.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+aws-cdk-lib = "^2.128.0"
+constructs = "^10.3.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.1"
+pytest-watcher = "^0.4.1"
+ruff = "^0.2.1"
+mypy = "^1.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff.lint]
+extend-select = [
+    "F",  # Flake8
+    "I",  # ISort
+    "A",  # Builtins
+    "S",  # Bandit
+    "RUF",  # Ruff rules
+    "ANN",  # Annotations
+]
