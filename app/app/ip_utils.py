@@ -15,7 +15,7 @@ def get_ip_location(value: str) -> dict[str, str | float]:
     if not is_ip_address(value):
         raise ValueError("The value is not an IP!")
 
-    response = requests.get(f"http://ip-api.com/json/{value}")
+    response = requests.get(f"http://ip-api.com/json/{value}", timeout=30)
     response.raise_for_status()
 
     response_data = response.json()

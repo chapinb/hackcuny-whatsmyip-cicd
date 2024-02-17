@@ -18,3 +18,13 @@ types-requests = "^2.31.0.20240125"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.ruff.lint]
+extend-select = [
+    "F",  # Flake8
+    "I",  # ISort
+    "A",  # Builtins
+    "S",  # Bandit
+    "RUF",  # Ruff rules
+    "ANN",  # Annotations
+]

@@ -1,10 +1,11 @@
+from typing import Self
 from unittest import TestCase
 
-from app.ip_utils import is_ip_address, get_ip_location
+from app.ip_utils import get_ip_location, is_ip_address
 
 
 class TestApp(TestCase):
-    def test_is_ip_address(self):
+    def test_is_ip_address(self: Self) -> None:
         # Assemble
         sample_data = "1.1.1.1"
         # Action
@@ -12,7 +13,7 @@ class TestApp(TestCase):
         # Assert
         self.assertTrue(is_ip)
 
-    def test_get_ip_location(self):
+    def test_get_ip_location(self: Self) -> None:
         # Assemble
         sample_data = "2.2.2.2"
         # Action
