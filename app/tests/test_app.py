@@ -1,7 +1,7 @@
 from typing import Self
 from unittest import TestCase
 
-from app.ip_utils import get_ip_location, is_ip_address
+from app.ip_utils import get_ip_location, is_ip_address, lambda_handler
 
 
 class TestApp(TestCase):
@@ -28,3 +28,21 @@ class TestApp(TestCase):
         for field_name, value_type in expected_location.items():
             self.assertIn(field_name, actual_location)
             self.assertIsInstance(actual_location[field_name], value_type)
+
+    def test_lambda_handler(self: Self) -> None:
+        # Assemble
+        sample_data = {"event": {"ip_address": "3.3.3.3"}, "context": {}}
+
+        # Action
+        actual_response = lambda_handler(**sample_data)
+
+        # Assertion
+        expected_location = {
+            "lat": float,
+            "lon": float,
+            "city": str,
+            "country": str,
+        }
+        for field_name, value_type in expected_location.items():
+            self.assertIn(field_name, actual_response)
+            self.assertIsInstance(actual_response[field_name], value_type)

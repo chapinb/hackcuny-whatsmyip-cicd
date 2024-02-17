@@ -1,4 +1,5 @@
 import ipaddress
+from typing import Any
 
 import requests
 
@@ -26,3 +27,10 @@ def get_ip_location(value: str) -> dict[str, str | float]:
         "city": response_data.get("city"),
         "country": response_data.get("country"),
     }
+
+
+def lambda_handler(
+    event: dict[str, Any], context: dict[str, Any]
+) -> dict[str, str | float]:
+    value = event.get("ip_address", "")
+    return get_ip_location(value)
