@@ -39,5 +39,5 @@ jobs:
     - name: Test Deploy with pytest
       run: |
         cd deploy/
-        poetry install
+        poetry install --no-root
         poetry run pytest
